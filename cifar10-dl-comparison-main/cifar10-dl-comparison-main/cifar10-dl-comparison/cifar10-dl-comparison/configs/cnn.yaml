@@ -1,0 +1,16 @@
+# Member 2 — Sanket Tippimani — ResNet-style CNN
+model:
+  name: cnn
+  channels: [64, 128, 256]
+  blocks_per_stage: [2, 2, 2]
+
+optim:
+  name: sgd
+  lr: 0.1
+  momentum: 0.9
+  nesterov: true
+  weight_decay: 0.0005
+
+scheduler:
+  name: cosine
+  warmup_epochs: 0

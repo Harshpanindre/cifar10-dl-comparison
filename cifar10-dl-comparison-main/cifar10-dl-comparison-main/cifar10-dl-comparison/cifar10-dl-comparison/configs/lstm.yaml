@@ -1,0 +1,21 @@
+# Member 3 — Sanyam Satija — RNN/LSTM
+model:
+  name: lstm
+  sequence: rows          # "rows": 32 steps x 96 features | "patches": 64 steps x 48 features
+  patch_size: 4           # only used when sequence = patches
+  hidden_size: 256
+  num_layers: 2
+  bidirectional: false
+  dropout: 0.2
+
+optim:
+  name: adam
+  lr: 0.001
+  weight_decay: 0.0001
+
+scheduler:
+  name: cosine
+  warmup_epochs: 0
+
+train:
+  grad_clip: 1.0          # recurrent nets benefit from gradient clipping

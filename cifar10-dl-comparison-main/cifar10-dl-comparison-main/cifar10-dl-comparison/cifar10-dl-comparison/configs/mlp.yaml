@@ -1,0 +1,14 @@
+# Member 1 — Harsh Kushwaha — MLP baseline
+model:
+  name: mlp
+  hidden_dims: [1024, 512, 256]
+  dropout: 0.3
+
+optim:
+  name: adam
+  lr: 0.001
+  weight_decay: 0.0001
+
+scheduler:
+  name: cosine
+  warmup_epochs: 0

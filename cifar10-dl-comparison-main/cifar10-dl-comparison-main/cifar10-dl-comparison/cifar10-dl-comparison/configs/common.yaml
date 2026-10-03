@@ -1,0 +1,23 @@
+# ------------------------------------------------------------------
+# COMMON EXPERIMENTAL PROTOCOL — shared by all four models.
+# Do not change these per model; change them here for everyone,
+# otherwise the comparison table is no longer apples-to-apples.
+# ------------------------------------------------------------------
+seed: 42
+output_dir: results
+
+data:
+  root: ./data
+  val_size: 5000          # 45,000 train / 5,000 val (stratified) / 10,000 test
+  batch_size: 128
+  num_workers: 2
+  augment: true           # RandomCrop(32, padding=4) + RandomHorizontalFlip
+  cutout: false           # if true, Cutout(16) is applied to ALL models
+  cutout_length: 16
+
+train:
+  epochs: 50              # same epoch budget for every model
+  label_smoothing: 0.0
+  amp: true               # mixed precision on GPU (ignored on CPU)
+  grad_clip: 0.0          # 0 = off (the LSTM config turns it on)
+  early_stopping_patience: 0   # 0 = off
